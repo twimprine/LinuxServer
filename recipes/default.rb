@@ -79,3 +79,10 @@ include_recipe 'snmp::default'
 #    command :allow
 #    action :create
 #end
+
+# ---------------------------------------------------------------------------
+# Evidently I need to update the clients more often 
+# this seems to be working in tests so... 
+# -------------------------------------------------------------------------
+
+include_recipe 'chef_client_updater'
