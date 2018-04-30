@@ -27,7 +27,7 @@
 
 # NTP Settings
 default['ntp']['restrict_default'] = 'restrict default limited kod nomodify'
-default['ntp']['servers'] = 'ntp.xula.local'
+default['ntp']['servers'] = ['ntp.xula.local']
 
 # firewall cookbook attributes
 default['firewall']['allow_ssh'] = true
