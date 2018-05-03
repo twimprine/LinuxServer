@@ -24,8 +24,11 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+
+#--------------------------------------------------------------------------------------
 # Basic format is to call the recipe for configuration then the firewall ports to 
 # be open for the service if needed.
+
 
 #-----------------------------------------------------------------------------
 # hostfile entries so that the system can always find the chef server

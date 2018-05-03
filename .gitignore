@@ -1,5 +1,7 @@
 # chef excludes
 .kitchen/
+./databags/
+./test/integration/data_bags/
 
 *.gem
 *.rbc
