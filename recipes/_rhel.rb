@@ -31,15 +31,15 @@
 # Due to RHEL licensing issues and our lack of a satelite server I'm using this as
 # a hack to keep our servers licensed so we can install and manage software
 
-case node['platform_family']
-  when 'rhel'
-    # Read data out of "accounts" data bag
-    support = data_bag_item('accounts', 'RHELSupport')
-    bash 'register' do
-      user 'root'
-      cwd '/tmp'
-      code <<-EOH
-      subscription-manager register --username support['account'] --password support['password'] --auto-attach --force
-      EOH
-    end
-  end
+# Read data out of "accounts" data bag
+account = data_bag_item('accounts', 'RHELSupport')
+username = account['account']
+password = account['password']
+
+bash 'register' do
+  user 'root'
+  cwd '/tmp'
+  code <<-EOH
+  subscription-manager register --username #{username} --password #{password} --auto-attach --force
+  EOH
+end

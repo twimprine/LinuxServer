@@ -29,6 +29,12 @@
 # Basic format is to call the recipe for configuration then the firewall ports to 
 # be open for the service if needed.
 
+print node['platform_family']
+print "\n"
+case node['platform_family']
+  when 'rhel'
+    include_recipe 'LinuxServer::_rhel'
+end
 
 #-----------------------------------------------------------------------------
 # hostfile entries so that the system can always find the chef server
