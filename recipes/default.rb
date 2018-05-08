@@ -89,6 +89,11 @@ include_recipe 'snmp::default'
 #    action :create
 #end
 
+# Collect all the logs 
+
+include_recipe 'rsyslog::client'
+
+
 # ---------------------------------------------------------------------------
 # Evidently I need to update the clients more often 
 # this seems to be working in tests so... 
