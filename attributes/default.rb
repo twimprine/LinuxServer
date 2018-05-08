@@ -44,3 +44,7 @@ default['resolver']['nameservers'] = ['10.50.10.164','10.80.36.100','10.80.10.25
 default['resolver']['options'] = {
   'rotate' => nil
 }
+
+# syslog settings
+default['rsyslog']['server_ip'] = "10.80.10.12"
+default['rsyslog']['action_queue_max_disk_space'] = '5G'
