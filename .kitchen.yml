@@ -30,6 +30,6 @@ suites:
     attributes: {}
     name: default
     run_list: 
-      - "recipe[LinuxServer::_rhel]"
+      - "recipe[LinuxServer]"
 verifier: 
   name: inspec
