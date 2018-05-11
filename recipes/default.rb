@@ -71,9 +71,11 @@ include_recipe 'resolver::default'
 
 #-----------------------------------------------------------------------------
 
-#if node['name'].include? "ntp"
-#  include_recipe 'ntp::default'
-#end 
+if node[name].include? "ntp"
+  puts "NTP Server"
+else 
+  include_recipe 'ntp::default'
+end
 
 #firewall_rule 'ntp' do
 #    port    123
