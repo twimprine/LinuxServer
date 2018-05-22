@@ -28,7 +28,7 @@
 
 
 #-------------------------------------------------------------------------------------
-# Due to RHEL licensing issues and our lack of a satelite server I'm using this as
+# Due to RHEL licensing issues and our lack of a satelite server I'm using this aa
 # a hack to keep our servers licensed so we can install and manage software
 
 # Read data out of "accounts" data bag
@@ -40,6 +40,7 @@ bash 'register' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
-  subscription-manager register --username #{username} --password #{password} --auto-attach --force
+  subscription-manager refresh
   EOH
 end
+# subscription-manager register --username #{username} --password #{password} --auto-attach

@@ -71,7 +71,7 @@ include_recipe 'resolver::default'
 
 #-----------------------------------------------------------------------------
 
-if node[name].include? "ntp"
+if node['hostname'].include? "ntp"
   puts "NTP Server"
 else 
   include_recipe 'ntp::default'
@@ -86,9 +86,9 @@ end
 
 #-----------------------------------------------------------------------------
 
-include_recipe 'snmp::default'
+include_recipe 'xula_snmp::default'
 
-#firewall_rule 'snmp' do
+#firewall_rule 'xula_snmp' do
 #    port    161
 #    protocol :tcp
 #    command :allow

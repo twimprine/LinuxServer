@@ -2,23 +2,21 @@ DEPENDENCIES
   LinuxServer
     path: .
     metadata: true
-  snmp (~> 0.1)
+  xula_snmp
+    git: https://github.com/twimprine/snmp.git
+    revision: 7507e3a82f80ac5c1b7b7681b6e1bd5da8f10b7a
 
 GRAPH
-  LinuxServer (0.1.8)
+  LinuxServer (0.1.10)
     chef_client_updater (~> 3.3)
     hostsfile (~> 3.0)
     ntp (~> 3.5)
     resolver (~> 2.0)
     rsyslog (~> 6.0)
-    snmp (~> 0.1)
+    xula_snmp (>= 0.0.0)
   chef_client_updater (3.3.3)
   hostsfile (3.0.1)
   ntp (3.5.6)
-  perl (6.0.1)
-    windows (>= 3.0)
   resolver (2.0.1)
   rsyslog (6.0.4)
-  snmp (0.4.0)
-    perl (>= 0.0.0)
-  windows (4.2.2)
+  xula_snmp (0.1.10)
