@@ -7,17 +7,20 @@ platforms:
 provisioner: 
   deprecations_as_errors: true
   name: chef_zero
+verifier:
+  name: inspec
 suites: 
   - 
     attributes: {}
     name: default
     run_list: 
       - "recipe[LinuxServer]"
-verifier: 
-  inspec_tests: 
-    - 
-      name: ssh-hardening
-      url: "https://github.com/dev-sec/tests-ssh-hardening/archive/master.zip"
-    - 
-      git: "https://github.com/dev-sec/tests-os-hardening.git"
-      name: os-hardening
+    verifier: 
+      inspec_tests: 
+        - 
+          name: linux-baseline
+          url: "https://github.com/dev-sec/linux-baseline/archive/master.zip"
+        - path: test/integration/default
+        -
+          name: ssh-baseline
+          git: "https://github.com/dev-sec/ssh-baseline.git"
