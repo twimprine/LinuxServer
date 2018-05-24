@@ -4,4 +4,4 @@ source 'https://supermarket.chef.io'
 metadata
 
 
-cookbook "snmp", "~>0.1", :chef_server
+cookbook "xula_snmp", "~>0.1", git: "https://github.com/twimprine/xula_snmp.git"

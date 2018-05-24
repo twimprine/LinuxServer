@@ -21,7 +21,7 @@ source_url 'https://github.com/twimprine/LinuxServer'
 
 depends 'resolver', '~> 2.0'
 depends 'ntp',      '~> 3.5'
-depends 'snmp',     '~> 0.1'
+depends 'xula_snmp',     '~> 0.1'
 depends 'rsyslog',  '~> 6.0'
 # depends 'firewall', '~> 2.0'
 depends 'hostsfile', '~> 3.0'

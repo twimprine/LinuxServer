@@ -3,25 +3,7 @@ driver:
   name: vagrant
 platforms: 
   - 
-    name: generic/rhel7
-#  - name: amazonlinux
-#    driver_config:
-#      box: mvbcoding/awslinux
-#  - name: centos-6
-#  - name: centos-7
-#  - name: debian-7
-#    run_list: apt::default
-#  - name: debian-8
-#    run_list: apt::default
-#  - name: debian-9
-#    run_list: apt::default
-#  - name: fedora-26
-#  - name: opensuse-leap-42
-#  - name: ubuntu-14.04
-#    run_list: apt::default
-#  - name: ubuntu-16.04
-#    run_list: apt::default
-
+    name: centos-7
 provisioner: 
   deprecations_as_errors: true
   name: chef_zero
@@ -32,4 +14,10 @@ suites:
     run_list: 
       - "recipe[LinuxServer]"
 verifier: 
-  name: inspec
+  inspec_tests: 
+    - 
+      name: ssh-hardening
+      url: "https://github.com/dev-sec/tests-ssh-hardening/archive/master.zip"
+    - 
+      git: "https://github.com/dev-sec/tests-os-hardening.git"
+      name: os-hardening

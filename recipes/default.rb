@@ -84,7 +84,7 @@ include_recipe 'resolver::default'
 
 #-----------------------------------------------------------------------------
 
-include_recipe 'snmp::default'
+include_recipe 'xula_snmp::default'
 
 #firewall_rule 'snmp' do
 #    port    161

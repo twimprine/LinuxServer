@@ -2,6 +2,8 @@
 .kitchen/
 ./databags/
 ./test/integration/data_bags/
+Berksfile.lock
+
 
 *.gem
 *.rbc
