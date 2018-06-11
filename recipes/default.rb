@@ -29,13 +29,8 @@
 # Basic format is to call the recipe for configuration then the firewall ports to 
 # be open for the service if needed.
 
-#case node['platform_family']
-#  when 'rhel'
-#    include_recipe 'LinuxServer::_rhel'
-#end
-
 if node['platform_family'] == 'rhel' and node['platform'] != 'centos'
-  include_recipe 'LinuxServer::_rhel'
+#  include_recipe 'LinuxServer::_rhel'
 end 
 
 #-----------------------------------------------------------------------------
@@ -97,6 +92,8 @@ include_recipe 'xula_snmp::default'
 
 include_recipe 'rsyslog::client'
 
+# Configure mail on all the clients to be properly relayed
+include_recipe 'postfix::client'
 
 # ---------------------------------------------------------------------------
 # Evidently I need to update the clients more often 

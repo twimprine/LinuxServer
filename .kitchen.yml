@@ -21,6 +21,6 @@ suites:
           name: linux-baseline
           url: "https://github.com/dev-sec/linux-baseline/archive/master.zip"
         - path: test/integration/default
-        -
-          name: ssh-baseline
-          git: "https://github.com/dev-sec/ssh-baseline.git"
+#        -
+#          name: ssh-baseline
+#          git: "https://github.com/dev-sec/ssh-baseline.git"
