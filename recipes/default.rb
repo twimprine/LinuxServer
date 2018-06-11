@@ -66,9 +66,8 @@ include_recipe 'resolver::default'
 
 #-----------------------------------------------------------------------------
 
-#if node['name'].include? "ntp"
-#  include_recipe 'ntp::default'
-#end 
+include_recipe 'ntp::default'
+# NTP Servers belong to the Chef NTPServer role 
 
 #firewall_rule 'ntp' do
 #    port    123
