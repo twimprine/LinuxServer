@@ -4,7 +4,7 @@ maintainer_email 'twimprin@xula.edu'
 license 'MIT'
 description 'Installs/Configures LinuxServer'
 long_description 'Installs/Configures LinuxServer'
-version '0.1.11'
+version '0.1.12'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 #supports 'redhat', 'centos', 'ubuntu', 'debian'
 
@@ -21,6 +21,7 @@ issues_url 'https://github.com/twimprine/LinuxServer/issues'
 #
 source_url 'https://github.com/twimprine/LinuxServer'
 
+depends 'chef-client'
 depends 'resolver', '~> 2.0'
 depends 'ntp',      '~> 3.5'
 depends 'xula_snmp',     '~> 0.1'
@@ -29,3 +30,4 @@ depends 'rsyslog',  '~> 6.0'
 depends 'hostsfile', '~> 3.0'
 depends 'chef_client_updater', '~> 3.3'
 depends 'postfix', '~> 5.3'
+depends 'os-hardening', '~> 3.1'

@@ -25,12 +25,14 @@
 # THE SOFTWARE.
 
 
+include_recipe 'chef-client::default'
+
 #--------------------------------------------------------------------------------------
 # Basic format is to call the recipe for configuration then the firewall ports to 
 # be open for the service if needed.
 
 if node['platform_family'] == 'rhel' and node['platform'] != 'centos'
-#  include_recipe 'LinuxServer::_rhel'
+  include_recipe 'LinuxServer::_rhel'
 end 
 
 #-----------------------------------------------------------------------------
@@ -46,6 +48,31 @@ hostsfile_entry '10.80.10.5' do
     comment 'Added to host file by chef to ensure recipes work if DNS is down'
 end
 
+#------------------------------------------------------------------------------
+# Create MOTD login screen
+cookbook_file '/etc/motd' do
+  source 'motd'
+  mode    '0444'
+  owner   'root'
+  action  :create
+end
+
+
+
+
+#------------------------------------------------------------------------------
+# Add ssh keys for root user
+# Edit properties in attributes file
+#-----------------------------------------------------------------------------
+# %w(twimprin).each do |key|
+#     sshkeys = data_bag_item('sshuserkeys', #{key})
+#     file '/root/.ssh/authorized_keys' do
+#         backup          true 
+#         owner           root 
+#         atomit_update   true 
+#         content         sshkeys['ssh_keys']
+#     end
+# end
 
 #-----------------------------------------------------------------------------
 # Global firewall settings 
@@ -93,6 +120,9 @@ include_recipe 'rsyslog::client'
 
 # Configure mail on all the clients to be properly relayed
 include_recipe 'postfix::client'
+
+# Harden the OS a bit
+include_recipe 'os-hardening'
 
 # ---------------------------------------------------------------------------
 # Evidently I need to update the clients more often 
