@@ -24,7 +24,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+# Not happy about this but we don't have a good handle on what's running so 
+# configuring the firewall properly is almost impossible at this time. And it's
+# configured by default so for now it needs to go... :/
 
+include_recipe 'firewall::disable_firewall'
+
+
+# Obviously we need chef-client to run :)
 include_recipe 'chef-client::default'
 
 #--------------------------------------------------------------------------------------
