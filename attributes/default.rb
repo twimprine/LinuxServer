@@ -40,12 +40,12 @@ default['firewall']['allow_icmp'] = true
 # DNS Settings for resolver cookbook
 default['resolver']['search'] = 'xula.local xavier.xula.local xula.edu'
 default['resolver']['domain'] = node['domain']
-default['resolver']['nameservers'] = ['10.50.10.164','10.80.36.100','10.80.10.25', '10.80.10.20']
+default['resolver']['nameservers'] = ['10.49.20.30', '10.49.21.30']
 default['resolver']['options'] = {
   'rotate' => nil
 }
 
 # syslog settings
-default['rsyslog']['server_ip'] = "10.80.10.12"
+default['rsyslog']['server_ip'] = "10.80.10.12", "10.80.24.150"
 default['rsyslog']['action_queue_max_disk_space'] = '5G'
 

@@ -30,6 +30,10 @@
 
 include_recipe 'firewall::disable_firewall'
 
+service 'firewalld' do
+  action :stop
+end
+
 
 # Obviously we need chef-client to run :)
 include_recipe 'chef-client::default'
@@ -62,6 +66,13 @@ cookbook_file '/etc/motd' do
   mode    '0444'
   owner   'root'
   action  :create
+end
+
+# Install open-vm-tools on centos 7+
+if node['platform'] == 'centos' and node['platform_version'].include? '7.'
+  yum_package 'open-vm-tools' do
+    action :install
+  end
 end
 
 
