@@ -4,7 +4,7 @@ maintainer_email 'twimprin@xula.edu'
 license 'MIT'
 description 'Installs/Configures LinuxServer'
 long_description 'Installs/Configures LinuxServer'
-version '0.1.16'
+version '0.1.19'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 #supports 'redhat', 'centos', 'ubuntu', 'debian'
 
@@ -31,3 +31,4 @@ depends 'hostsfile', '~> 3.0'
 depends 'chef_client_updater', '~> 3.3'
 depends 'postfix', '~> 5.3'
 depends 'os-hardening', '~> 3.1'
+depends 'yum-cron', '~> 1.0'
