@@ -75,8 +75,10 @@ if node['platform'] == 'centos' and node['platform_version'].include? '7.'
   end
 end
 
-
-
+# Update CentOS Linux servers
+if node['platform'] == 'centos' 
+  include_recipe 'yum-cron::default'
+end
 
 #------------------------------------------------------------------------------
 # Add ssh keys for root user
