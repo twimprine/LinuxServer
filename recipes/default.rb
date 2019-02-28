@@ -24,7 +24,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# Not happy about this but we don't have a good handle on what's running so 
+# Not happy about this but we don't have a good handle on what's running so
 # configuring the firewall properly is almost impossible at this time. And it's
 # configured by default so for now it needs to go... :/
 
@@ -39,18 +39,18 @@ end
 include_recipe 'chef-client::default'
 
 #--------------------------------------------------------------------------------------
-# Basic format is to call the recipe for configuration then the firewall ports to 
+# Basic format is to call the recipe for configuration then the firewall ports to
 # be open for the service if needed.
 
 if node['platform_family'] == 'rhel' and node['platform'] != 'centos'
   include_recipe 'LinuxServer::_rhel'
-end 
+end
 
 #-----------------------------------------------------------------------------
 # hostfile entries so that the system can always find the chef server
 # sometimes the resolv.conf file is changed on boot - this gets corrected
-# when the recipe runs IF if can find the chef server, otherwise the system 
-# just sits and spins fans... 
+# when the recipe runs IF if can find the chef server, otherwise the system
+# just sits and spins fans...
 
 hostsfile_entry '10.80.10.5' do
     hostname 'xuvuchef001'
@@ -83,9 +83,11 @@ if node['platform'] == 'centos' and node['platform_version'].include? '7.'
 end
 
 # Update CentOS Linux servers
-if node['platform'] == 'centos' 
-  include_recipe 'yum-cron::default'
-end
+# if node['platform'] == 'centos'
+#   include_recipe 'yum-cron::default'
+# end
+
+include_recipe 'yum-cron::default'
 
 #------------------------------------------------------------------------------
 # Add ssh keys for root user
@@ -94,15 +96,15 @@ end
 # %w(twimprin).each do |key|
 #     sshkeys = data_bag_item('sshuserkeys', #{key})
 #     file '/root/.ssh/authorized_keys' do
-#         backup          true 
-#         owner           root 
-#         atomit_update   true 
+#         backup          true
+#         owner           root
+#         atomit_update   true
 #         content         sshkeys['ssh_keys']
 #     end
 # end
 
 #-----------------------------------------------------------------------------
-# Global firewall settings 
+# Global firewall settings
 
 # Disabled firewall changes until we can properly troubleshoot
 
@@ -121,7 +123,7 @@ include_recipe 'resolver::default'
 #-----------------------------------------------------------------------------
 
 include_recipe 'ntp::default'
-# NTP Servers belong to the Chef NTPServer role 
+# NTP Servers belong to the Chef NTPServer role
 
 #firewall_rule 'ntp' do
 #    port    123
@@ -141,7 +143,7 @@ include_recipe 'xula_snmp::default'
 #    action :create
 #end
 
-# Collect all the logs 
+# Collect all the logs
 
 include_recipe 'rsyslog::client'
 
@@ -152,8 +154,8 @@ include_recipe 'postfix::client'
 #include_recipe 'os-hardening'
 
 # ---------------------------------------------------------------------------
-# Evidently I need to update the clients more often 
-# this seems to be working in tests so... 
+# Evidently I need to update the clients more often
+# this seems to be working in tests so...
 # -------------------------------------------------------------------------
 
 include_recipe 'chef_client_updater'
