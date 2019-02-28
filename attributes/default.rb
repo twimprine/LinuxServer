@@ -23,7 +23,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-# Attribute Settings for associated cookbooks 
+# Attribute Settings for associated cookbooks
 
 # NTP Settings
 default['ntp']['restrict_default'] = 'restrict default limited kod nomodify'
@@ -49,6 +49,15 @@ default['resolver']['options'] = {
 default['rsyslog']['server_ip'] = "10.80.10.12", "10.80.24.150"
 default['rsyslog']['action_queue_max_disk_space'] = '5G'
 
-# postfix settings
+# yum-cron settings
+case node['platform_version'].to_i
+when 6
+  default['yum-cron']['mailto'] = 'twimprin@xula.edu'
+when 7
+  default['yum-cron']['daily']['email'] = {
+  'email_from' => 'root@' + node['fqdn'],
+  'email_to' => 'twimprin@xula.edu',
+  'email_host' => 'localhost',
+}
 
-
+end
