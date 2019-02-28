@@ -4,7 +4,7 @@ maintainer_email 'twimprin@xula.edu'
 license 'MIT'
 description 'Installs/Configures LinuxServer'
 long_description 'Installs/Configures LinuxServer'
-version '0.1.19'
+version '0.1.20'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 #supports 'redhat', 'centos', 'ubuntu', 'debian'
 

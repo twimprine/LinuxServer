@@ -59,6 +59,13 @@ hostsfile_entry '10.80.10.5' do
     comment 'Added to host file by chef to ensure recipes work if DNS is down'
 end
 
+hostsfile_entry '10.49.5.10' do
+   hostname 'xuvuchef002'
+   aliases ['xuvuchef002.xavier.xula.local', 'xuvuchef002.xula.local']
+   action :create
+   comment 'Added to host file by Chef to ensure resolution in case of DNS issue'
+end
+
 #------------------------------------------------------------------------------
 # Create MOTD login screen
 cookbook_file '/etc/motd' do
