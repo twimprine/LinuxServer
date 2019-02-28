@@ -149,7 +149,7 @@ include_recipe 'rsyslog::client'
 include_recipe 'postfix::client'
 
 # Harden the OS a bit
-include_recipe 'os-hardening'
+#include_recipe 'os-hardening'
 
 # ---------------------------------------------------------------------------
 # Evidently I need to update the clients more often 

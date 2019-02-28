@@ -36,10 +36,23 @@ account = data_bag_item('accounts', 'RHELSupport')
 username = account['account']
 password = account['password']
 
-bash 'register' do
-  user 'root'
-  cwd '/tmp'
-  code <<-EOH
-  subscription-manager register --username #{username} --password #{password} --auto-attach --force
-  EOH
-end
+case node['platform_version'].split('.')[0]
+  when '6'
+    bash 'register' do
+      user 'root'
+      cwd '/tmp'
+      code <<-EOH
+      subscription-manager register --username #{username} --password #{password} --auto-attach --force
+      subscription-manager repos --enable rhel-6-server-optional-rpms
+      EOH
+    end
+  when '7'
+    bash 'register' do
+      user 'root'
+      cwd '/tmp'
+      code <<-EOH
+      subscription-manager register --username #{username} --password #{password} --auto-attach --force
+      subscription-manager repos --enable rhel-7-server-optional-rpms
+      EOH
+    end
+  end

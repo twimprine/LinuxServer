@@ -49,3 +49,6 @@ default['resolver']['options'] = {
 default['rsyslog']['server_ip'] = "10.80.10.12", "10.80.24.150"
 default['rsyslog']['action_queue_max_disk_space'] = '5G'
 
+# postfix settings
+
+
