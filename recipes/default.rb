@@ -66,6 +66,34 @@ hostsfile_entry '10.49.5.10' do
    comment 'Added to host file by Chef to ensure resolution in case of DNS issue'
 end
 
+hostfile_entry '10.49.22.131' do
+   hostname 'xuvurmq001'
+   aliases ['xuvurmq001.xula.local', 'xuvurmq001.xula.edu']
+   action :create
+end
+
+hostfile_entry '10.49.22.132' do
+   hostname 'xuvurmq002'
+   aliases ['xuvurmq002.xula.local', 'xuvurmq002.xula.edu']
+   action :create
+end
+
+hostfile_entry '10.49.22.133' do
+   hostname 'xuvurmq003'
+   aliases ['xuvurmq003.xula.local', 'xuvurmq003.xula.edu']
+   action :create
+end
+
+hostfile_entry '10.49.22.134' do
+   hostname 'xuvurmq004'
+   aliases ['xuvurmq004.xula.local', 'xuvurmq004.xula.edu']
+   action :create
+end
+
+
+
+
+
 #------------------------------------------------------------------------------
 # Create MOTD login screen
 cookbook_file '/etc/motd' do
