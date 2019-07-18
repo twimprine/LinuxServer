@@ -70,11 +70,13 @@ hostsfile_entry '10.49.22.131' do
    hostname 'xuvurmq001'
    aliases ['xuvurmq001.xula.local', 'xuvurmq001.xula.edu']
    action :create
+   comment 'Added by Chef for RabbitMQ'
 end
 
 hostsfile_entry '10.49.22.132' do
    hostname 'xuvurmq002'
    aliases ['xuvurmq002.xula.local', 'xuvurmq002.xula.edu']
+   comment 'Added by Chef for RabbitMQ'
    action :create
 end
 
@@ -82,12 +84,28 @@ hostsfile_entry '10.49.22.133' do
    hostname 'xuvurmq003'
    aliases ['xuvurmq003.xula.local', 'xuvurmq003.xula.edu']
    action :create
+   comment 'Added by Chef for RabbitMQ'
 end
 
 hostsfile_entry '10.49.22.134' do
    hostname 'xuvurmq004'
    aliases ['xuvurmq004.xula.local', 'xuvurmq004.xula.edu']
+   comment 'Added by Chef for RabbitMQ'
    action :create
+end
+
+hostsfile_entry '10.49.12.131' do
+  hostname 'xuvudevrmq001'
+  aliases ['xuvudevrmq001.xula.local', 'xuvudevrmq001.xula.edu']
+  action :create
+  comment 'Added by Chef for RabbitMQ'
+end
+
+hostsfile_entry '10.49.12.132' do
+  hostname 'xuvudevrmq002'
+  aliases ['xuvudevrmq002.xula.local', 'xuvudevrmq002.xula.edu']
+  action :create
+  comment 'Added by Chef for RabbitMQ'
 end
 
 
