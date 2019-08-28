@@ -35,9 +35,6 @@ service 'firewalld' do
 end
 
 
-# Obviously we need chef-client to run :)
-include_recipe 'chef-client::default'
-
 #--------------------------------------------------------------------------------------
 # Basic format is to call the recipe for configuration then the firewall ports to
 # be open for the service if needed.
@@ -198,10 +195,3 @@ include_recipe 'postfix::client'
 
 # Harden the OS a bit
 #include_recipe 'os-hardening'
-
-# ---------------------------------------------------------------------------
-# Evidently I need to update the clients more often
-# this seems to be working in tests so...
-# -------------------------------------------------------------------------
-
-include_recipe 'chef_client_updater'
