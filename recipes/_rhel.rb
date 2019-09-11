@@ -43,3 +43,15 @@ bash 'register' do
     subscription-manager register --username #{username} --password #{password} --auto-attach --force
     EOH
   end
+
+  if node['platform'] == 'redhat' and node['platform_version'].include? '7.'
+    yum_package 'open-vm-tools' do
+      action :install
+    end
+  end
+
+  if node['platform'] == 'redhat' and node['platform_version'].include? '8.'
+    yum_package 'open-vm-tools' do
+      action :install
+    end
+  end

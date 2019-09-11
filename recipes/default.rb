@@ -43,13 +43,21 @@ if node['platform_family'] == 'rhel' and node['platform'] != 'centos'
   include_recipe 'LinuxServer::_rhel'
 end
 
+#-------------------------------------------------------------------------------
+# Add user for Thycotic password management system
+user 'thycotic' do
+    comment 'This user is for Thycotic password management - do not modify'
+    password '$1$4z2.U2Uo$aZkPDYxfYfY9PRuyuIAaM/'
+    action create
+end
+
 #-----------------------------------------------------------------------------
 # hostfile entries so that the system can always find the chef server
 # sometimes the resolv.conf file is changed on boot - this gets corrected
 # when the recipe runs IF if can find the chef server, otherwise the system
 # just sits and spins fans...
 
-hostsfile_entry '10.80.10.5' do
+hostsfile_entry '10.49.22.5' do
     hostname 'xuvuchef001'
     aliases ['xuvuchef001.xavier.xula.local', 'xuvuchef001.xula.local']
     action  :create
